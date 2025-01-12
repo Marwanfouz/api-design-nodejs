@@ -1,15 +1,7 @@
-const http = require('http');
+const app  = require('./server');
+const port = 5000;
 
-const server = http.createServer(async (req, res) => {
-  if (req.url === "/" && req.method === "GET") {
-    const clientIp = req.socket.remoteAddress; // Get client IP
-    console.log(`Client IP: ${clientIp}`);
-    res.end();
-  }
-});
 
-const PORT = 3001;
-
-server.listen(PORT, () => {
-  console.log(`server on ${PORT}`);
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
